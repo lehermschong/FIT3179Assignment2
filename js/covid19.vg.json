@@ -19,7 +19,8 @@
       "key": "location",
       "fields": ["total_cases","total_cases_per_million","population"]
     }
-  }
+  },
+  {"calculate": "datum.total_cases_per_million + 1", "as": "Total Cases Per Million"}
 ],
   "projection": {
     "type": "equirectangular"
@@ -29,8 +30,8 @@
     },
   "encoding": {
     "color": {
-      "condition": {"test": "datum.total_cases_per_million ==0 ", "value": "grey"},
-      "field": "total_cases_per_million",
+      "condition": {"test": "datum.total_cases_per_million <= 1 ", "value": "grey"},
+      "field": "Total Cases Per Million",
       "type": "quantitative",
       "scale": {"type": "log", "scheme": "reds"}
     },
