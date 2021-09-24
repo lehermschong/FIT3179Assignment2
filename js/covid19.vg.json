@@ -29,7 +29,7 @@
     },
   "encoding": {
     "color": {
-      "condition": {"test": "datum.total_cases_per_million <=0 ", "value": "grey"},
+      "condition": {"test": "datum.total_cases_per_million ==0 ", "value": "grey"},
       "field": "total_cases_per_million",
       "type": "quantitative",
       "scale": {"type": "log", "scheme": "reds"}
