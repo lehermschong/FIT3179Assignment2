@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "COVID-19 Active Cases",
+  "title": "Total COVID-19 Cases as of 24th of September, 2021",
   "width": 1200,
   "height": 1000,
   "data": {
@@ -17,10 +17,10 @@
         "url": "https://raw.githubusercontent.com/trashcan99/FIT3179Assignment2/main/data/owid-covid-data.csv"
       },
       "key": "iso_code",
-      "fields": ["total_cases","population"]
+      "fields": ["total_cases","total_cases_per_million","population"]
     }
   },
-  {"calculate": "datum.total_cases + 1", "as": "Total Cases"}
+  {"calculate": "datum.total_cases_per_million + 1", "as": "Total Cases"}
 ],
   "projection": {
     "type": "equirectangular"
@@ -30,14 +30,16 @@
     },
   "encoding": {
     "color": {
-      "condition": {"test": "datum.total_cases <= 1 ", "value": "grey"},
-      "field": "total_cases",
+      "condition": {"test": "datum.total_cases_per_million <= 0 ", "value": "grey"},
+      "field": "Total Cases",
       "type": "quantitative",
       "scale": {"type": "log", "scheme": "reds"}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},
-      {"field": "total_cases", "type": "quantitative"}
+      {"field": "total_cases_per_million", "type": "quantitative","title": "Total Cases Per Million"},
+      {"field": "total_cases", "type": "quantitative", "title": "Total Cases"}
+
     ]
   }
 }
