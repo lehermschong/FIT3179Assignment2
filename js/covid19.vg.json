@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Total COVID-19 Cases as of 24th of September, 2021",
   "width": 1200,
-  "height": 1000,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/trashcan99/FIT3179Assignment2/main/data/worldmap.json",
     "format": {
