@@ -37,7 +37,7 @@
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},
-      {"field": "total_cases_per_million", "type": "quantitative","title": "Total Cases Per Million"},
+      {"field": "total_cases_per_million", "type": "quantitative","format":".2f","title": "Total Cases Per Million"},
       {"field": "total_cases", "type": "quantitative", "title": "Total Cases"}
 
     ]
