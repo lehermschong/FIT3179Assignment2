@@ -51,7 +51,8 @@
       "scale": {
         "domain": [0, 240000],
         "type": "sqrt"
-      }
+      },
+      "title": "Total Cases per Million"
     },
     "y": {
       "field": "gdp_per_capita",
@@ -59,7 +60,8 @@
       "scale": {
         "type": "linear",
         "domain": [500, 120000]
-      }
+      },
+      "title": "GDP per Capita"
     }
   },
   "layer": [{
@@ -80,17 +82,16 @@
             "domain": [200, 400, 600, 800, 1000],
             "range": [200, 300, 400, 500, 600]
           },
-          "legend": {
-            "format": ".1s"
-          }
+          "title": "Total Deaths per Million"
         },
         "color": {
           "field": "continent",
           "type": "nominal",
           "scale": {
             "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
-            "range": ["#fa1100", "#fbad00", "#ffa599", "#24fa00", "#7d52ff", "#ff00eb"]
-          }
+            "range": ["#fa1100", "#fbad00", "#e9b9b9", "#b8e553", "#7d52ff", "#ff00eb"]
+          },
+          "title": "Continent"
         },
         "opacity": {
           "condition": {
