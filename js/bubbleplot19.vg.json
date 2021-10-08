@@ -1,0 +1,88 @@
+{
+    "width": 900,
+    "height": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bubbleplot showing horsepower on x, miles per gallons on y, and binned acceleration on size.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data.csv"
+    },
+    "params":[
+    {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "labels":[
+            "Show All",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+        ],
+        "name": "Continent Selection: "}
+      }],
+    "layer": [{
+        "selection": {
+            "continent_highlight": {
+              "type": "multi",
+              "fields": ["continent"],
+              "bind": "legend"
+            }
+          },
+        "transform": [{"filter":"datum.continent != ''"},
+            {"filter":"datum.gdp_per_capita > 0"},
+            {"filter":"datum.total_cases_per_million > 0"},
+            {"filter": "Continent_selection == null || datum.continent == Continent_selection"}
+        ]
+        ,
+        "mark": "circle",
+        "encoding": {
+            "x": {
+                "field": "total_cases_per_million",
+                "type": "quantitative",
+                "scale": {"domain":[0,240000],"type":"sqrt"}
+            },
+            "y": {
+                "field": "gdp_per_capita",
+                "type": "quantitative",
+                "scale": {"type":"linear","domain":[500,120000]}
+            },
+            "size": {
+                "field": "total_deaths_per_million",
+                "type": "quantitative",
+                "scale": {"type":"linear","domain":[200,400,600,800,1000],"range":[200,300,400,500,600]},
+                "legend": {"format": ".1s"}
+            },
+            "color": {
+                "field": "continent",
+                "type": "nominal",
+                "scale":{"domain":["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+                    "range":["#fa1100","#fbad00","#ffe599","#24fa00","#7d52ff","#ff00eb"]}
+              },
+              "opacity": {
+                "condition": {"selection": "continent_highlight", "value": 0.8},
+                "value": 0.2
+              },
+              "tooltip": [
+                {"field": "location", "type": "nominal"},
+                {"field": "continent", "type": "nominal"},
+                {"field": "gdp_per_capita", "type": "quantitative", "format": ","},
+                {"field": "total_cases_per_million", "type": "quantitative", "format": ","},
+                {"field": "total_deaths_per_million", "type": "quantitative", "format": ","}
+              ]
+          
+            }
+            
+        }
+    ]
+}
