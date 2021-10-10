@@ -33,7 +33,7 @@
       "condition": {"test": "datum.people_vaccinated_per_hundred <= 0 ", "value": "grey"},
       "field": "people_vaccinated_per_hundred",
       "type": "quantitative",
-      "scale": {"type": "linear", "scheme": "redblue"}
+      "scale": {"type": "linear", "scheme": "redyellowgreen"}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},

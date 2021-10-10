@@ -49,8 +49,7 @@
       "field": "total_cases_per_million",
       "type": "quantitative",
       "scale": {
-        "domain": [0, 240000],
-        "type": "sqrt"
+        "type": "linear"
       },
       "title": "Total Cases per Million"
     },
@@ -58,8 +57,7 @@
       "field": "gdp_per_capita",
       "type": "quantitative",
       "scale": {
-        "type": "linear",
-        "domain": [500, 120000]
+        "type": "linear"
       },
       "title": "GDP per Capita"
     }
