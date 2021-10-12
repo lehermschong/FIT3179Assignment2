@@ -1,0 +1,99 @@
+{
+    "width": 900,
+    "height": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bubbleplot showing horsepower on x, miles per gallons on y, and binned acceleration on size.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data.csv"
+    },
+    "transform": [{
+        "filter": "datum.continent == ''"
+      },
+      {
+        "filter": "datum.total_cases > 0"
+      },
+      {
+        "filter": "datum.total_deaths > 0"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "total_cases",
+        "type": "quantitative",
+        "scale": {
+          "type": "log"
+        },
+        "title": "Total Cases",
+        "axis": {
+          "tickCount": 7
+        }
+      },
+      "y": {
+        "field": "total_deaths",
+        "type": "quantitative",
+        "scale": {
+          "type": "log"
+        },
+        "title": "Total Deaths",
+        "axis": {
+          "tickCount": 6
+        }
+      }
+    },
+    "layer": [{
+        "selection": {
+          "continent_highlight": {
+            "type": "multi",
+            "fields": ["continent"],
+            "bind": "legend"
+          }
+        },
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "population",
+            "type": "quantitative",
+            "scale": {
+              "type": "linear",
+              "range": [1000, 3000, 5000, 7000, 9000]
+            },
+            "title": "Population"
+          },
+          "color": {
+            "field": "location",
+            "type": "nominal",
+            "scale": {
+              "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+              "range": ["#fa1100", "#fbad00", "#e9b9b9", "#b8e553", "#7d52ff", "#ff00eb"]
+            },
+            "title": "Continent"
+          },
+          "tooltip": [{
+              "field": "location",
+              "type": "nominal"
+            },
+            {
+              "field": "continent",
+              "type": "nominal"
+            },
+            {
+              "field": "population",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "total_cases",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "total_deaths",
+              "type": "quantitative",
+              "format": ","
+            }
+          ]
+  
+        }
+      }
+    ]
+  }

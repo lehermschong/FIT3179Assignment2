@@ -1,5 +1,5 @@
 {
-  "title": "Total COVID-19 Cases as of 24th of September, 2021",
+  "title": "Population Fully Vaccinated All Around the World",
   "width": 1200,
   "height": 500,
   "data": {
@@ -14,13 +14,12 @@
     "lookup": "properties.iso_a3",
     "from": {
       "data": {
-        "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data.csv"
+        "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.csv"
       },
       "key": "iso_code",
-      "fields": ["people_vaccinated_per_hundred","people_vaccinated"]
+      "fields": ["people_fully_vaccinated_per_hundred","people_fully_vaccinated"]
     }
-  },
-  {"calculate": "datum.people_vaccinated_per_hundred + 1", "as": "percentagevaxxedpaddedbyone"}
+  }
 ],
   "projection": {
     "type": "equirectangular"
@@ -30,15 +29,15 @@
     },
   "encoding": {
     "color": {
-      "condition": {"test": "datum.people_vaccinated_per_hundred <= 0 ", "value": "grey"},
-      "field": "people_vaccinated_per_hundred",
+      "condition": {"test": "datum.new_vaccinations_smoothed_per_million <= 0 ", "value": "grey"},
+      "field": "people_fully_vaccinated_per_hundred",
       "type": "quantitative",
       "scale": {"type": "linear", "scheme": "redyellowgreen"}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},
-      {"field": "people_vaccinated_per_hundred", "type": "quantitative","format":".2f","title": "Vaccinated Percentage"},
-      {"field": "people_vaccinated", "type": "quantitative", "title": "People Vaccinated"}
+      {"field": "people_fully_vaccinated_per_hundred", "type": "quantitative","format":".2f","title": "Fully Vaccinated Percentage"},
+      {"field": "people_fully_vaccinated", "type": "quantitative", "title": "People Vaccinated"}
 
     ]
   }

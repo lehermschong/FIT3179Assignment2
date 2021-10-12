@@ -7,59 +7,82 @@
     "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data.csv"
   },
   "params": [{
-    "name": "Continent_selection",
-    "bind": {
-      "input": "select",
-      "options": [
-        null,
-        "North America",
-        "South America",
-        "Europe",
-        "Africa",
-        "Asia",
-        "Oceania"
-      ],
-      "labels": [
-        "Show All",
-        "North America",
-        "South America",
-        "Europe",
-        "Africa",
-        "Asia",
-        "Oceania"
-      ],
-      "name": "Continent Selection: "
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      }
     }
-  }],
+  ],
   "transform": [{
       "filter": "datum.continent != ''"
     },
     {
-      "filter": "datum.gdp_per_capita > 0"
+      "filter": "datum.total_vaccinations > 0"
     },
     {
-      "filter": "datum.total_cases_per_million > 0"
+      "filter": "datum.total_deaths > 0"
     },
     {
       "filter": "Continent_selection == null || datum.continent == Continent_selection"
+    },
+    {
+      "filter": "datum.population > Population_Above"
     }
   ],
   "encoding": {
     "x": {
-      "field": "total_cases_per_million",
+      "field": "total_vaccinations",
       "type": "quantitative",
       "scale": {
-        "type": "linear"
+        "type": "log",
+        "domain": [10000, 10000000000]
       },
-      "title": "Total Cases per Million"
+      "title": "Total Vaccinations",
+      "axis": {
+        "tickCount": 6
+      }
     },
     "y": {
-      "field": "gdp_per_capita",
+      "field": "total_deaths",
       "type": "quantitative",
       "scale": {
-        "type": "linear"
+        "type": "log",
+        "domain": [1, 1000000]
       },
-      "title": "GDP per Capita"
+      "title": "Total Deaths",
+      "axis": {
+        "tickCount": 6
+      }
     }
   },
   "layer": [{
@@ -73,14 +96,14 @@
       "mark": "circle",
       "encoding": {
         "size": {
-          "field": "total_deaths_per_million",
+          "field": "population",
           "type": "quantitative",
           "scale": {
-            "type": "linear",
-            "domain": [200, 400, 600, 800, 1000],
-            "range": [200, 300, 400, 500, 600]
+            "type": "threshold",
+            "domain": [200000000, 400000000, 600000000, 800000000, 1000000000],
+            "range": [100, 300, 500, 700, 900]
           },
-          "title": "Total Deaths per Million"
+          "title": "Population"
         },
         "color": {
           "field": "continent",
@@ -94,7 +117,7 @@
         "opacity": {
           "condition": {
             "selection": "continent_highlight",
-            "value": 0.8
+            "value": 1
           },
           "value": 0.2
         },
@@ -115,17 +138,17 @@
             "type": "nominal"
           },
           {
-            "field": "gdp_per_capita",
+            "field": "population",
             "type": "quantitative",
             "format": ","
           },
           {
-            "field": "total_cases_per_million",
+            "field": "total_vaccinations",
             "type": "quantitative",
             "format": ","
           },
           {
-            "field": "total_deaths_per_million",
+            "field": "total_deaths",
             "type": "quantitative",
             "format": ","
           }
@@ -138,7 +161,7 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -5,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -156,31 +179,7 @@
             "value": 1
           },
           "value": 0
-        },
-        "tooltip": [{
-            "field": "location",
-            "type": "nominal"
-          },
-          {
-            "field": "continent",
-            "type": "nominal"
-          },
-          {
-            "field": "gdp_per_capita",
-            "type": "quantitative",
-            "format": ","
-          },
-          {
-            "field": "total_cases_per_million",
-            "type": "quantitative",
-            "format": ","
-          },
-          {
-            "field": "total_deaths_per_million",
-            "type": "quantitative",
-            "format": ","
-          }
-        ]
+        }
       }
     }
   ]

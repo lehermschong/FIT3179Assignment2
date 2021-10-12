@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data-full.csv"
+    },
+    "title": "Daily Vaccinations Around the World",
+    "width": 800,
+    "padding":5,
+    "config": {
+        "view": {
+            "strokeWidth": 0
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "transform": [{
+        "filter": "datum.location == 'World'"
+    }],
+    "layer": [{
+            "mark": {
+                "type": "rect",
+                "strokeWidth": 10
+            },
+            "params": [{
+                "name": "highlight",
+                "select": "point"
+            }],
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "timeUnit": {
+                        "unit": "yearweek"
+                    },
+                    "type": "temporal",
+                    "title": "Month",
+                    "axis": {
+                        "labelAngle": 0,
+                        "format": "%b %y"
+                    }
+                },
+                "y": {
+                    "field": "date",
+                    "timeUnit": "day",
+                    "type": "ordinal",
+                    "title": "Day"
+                },
+                "color": {
+                    "field": "new_vaccinations",
+                    "aggregate": "mean",
+                    "type": "quantitative",
+                    "legend": {
+                        "title": null
+                    },
+                    "scale": {
+                        "type": "linear",
+                        "scheme": "redyellowgreen"
+                    }
+                },
+                "tooltip": [{
+                        "field": "new_vaccinations",
+                        "aggregate":"mean",
+                        "type": "quantitative",
+                        "title": "New Vaccinations"
+                    },
+                    {
+                        "field": "date",
+                        "type": "temporal",
+                        "title": "Date"
+                    }
+                ]
+            }
+        }
+        ]
+    }

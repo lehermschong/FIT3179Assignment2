@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 580,
+    "height": 375,
+    "title": "COVID-19 Trend in North America",
+    "data": {
+        "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data-full.csv"
+    },
+    "transform": [{
+        "filter": {
+            "field": "date",
+            "gte": {"year":2020,"month":"dec","date":1}
+        }},
+        {"filter": {
+            "field": "location",
+            "oneOf": ["North America"]
+        }
+    }],
+    "layer": [{
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "timeUnit": {
+                        "unit": "yearweek"
+                    },
+                    "type": "temporal",
+                    "title": "Month",
+                    "axis": {
+                        "labelAngle": 0,
+                        "format": "%b %y"
+                    }
+                },
+                "y": {
+                    "field":"new_vaccinations",
+                    "aggregate": "mean",
+                    "type": "quantitative"
+                }
+            }
+        }
+    ]
+}

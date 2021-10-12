@@ -16,13 +16,45 @@
 </div>
 <!--Chloropleth Map-->>  
 <div id="covid19_map"></div>
+<!--Heatmap-->
+<div id="heatmap"></div>
 <!--Scatterplot Graph-->
 <div id="scatterplot_graph"></div>
+<!--Vaxx-->
+<div id="vaxxmanufacturer"></div>
+<!--Age Bar Chart-->>
+<div id="barchart"></div>
+<!--Lines-->
+<div id="lineafrica"></div>
+<div id="lineasia"></div>
+<div id="lineeurope"></div>
+<div id="linena"></div>
+<div id="linesa"></div>
+<div id="lineoce"></div>
 <script type="text/javascript">
   var covidmap = "js/covid19.vg.json";
+  var heatmap = "js/heatmap.vg.json";
   var scatterplot = "js/bubbleplot19.vg.json";
+  var lineasia = "js/mean_asia.vg.json";
+  var lineafrica = "js/mean_afr.vg.json";
+  var lineeurope = "js/mean_eu.vg.json";
+  var linena = "js/mean_na.vg.json";
+  var linesa = "js/mean_sa.vg.json";
+  var lineoce = "js/mean_oce.vg.json";
+  var barchart = "js/barchart.vg.json";
+  var vaxxmanufacturer = "js/vaccination_manufacturer.vg.json";
   vegaEmbed('#covid19_map', covidmap).then(function(result) {}).catch(console.error);
+  vegaEmbed('#heatmap', heatmap).then(function(result) {}).catch(console.error);
   vegaEmbed('#scatterplot_graph', scatterplot).then(function(result) {}).catch(console.error);
+  vegaEmbed('#lineasia', lineasia).then(function(result) {}).catch(console.error);
+  vegaEmbed('#lineafrica', lineafrica).then(function(result) {}).catch(console.error);
+  vegaEmbed('#lineeurope', lineeurope).then(function(result) {}).catch(console.error);
+  vegaEmbed('#linena', linena).then(function(result) {}).catch(console.error);
+  vegaEmbed('#linesa', linesa).then(function(result) {}).catch(console.error);
+  vegaEmbed('#lineoce', lineoce).then(function(result) {}).catch(console.error);
+  vegaEmbed('#barchart',barchart).then(function(result) {}).catch(console.error);
+  vegaEmbed('#vaxxmanufacturer',vaxxmanufacturer).then(function(result) {}).catch(console.error);
+
 </script>
 
 </body>
