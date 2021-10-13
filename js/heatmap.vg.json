@@ -4,7 +4,7 @@
         "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data-full.csv"
     },
     "title": "Daily Vaccinations Around the World",
-    "width": 800,
+    "width": 1000,
     "padding":5,
     "config": {
         "view": {
@@ -61,7 +61,8 @@
                         "field": "new_vaccinations",
                         "aggregate":"mean",
                         "type": "quantitative",
-                        "title": "New Vaccinations"
+                        "title": "New Vaccinations",
+                        "format":","
                     },
                     {
                         "field": "date",

@@ -1,45 +1,46 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 600,
-    "data": {
-      "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-age-group.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1100,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-age-group.csv"
+  },
+  "transform": [{
+      "filter": "datum.location != 'Israel'"
     },
-    "transform": [{
-        "filter": "datum.location != 'Israel'"
+    {
+      "filter": "datum.location != 'Jersey'"
+    },
+    {
+      "filter": "datum.location != 'Uruguay'"
+    },
+    {
+      "filter": "datum.location != 'Liechtenstein'"
+    },
+    {
+      "filter": "datum.location != 'Switzerland'"
+    }
+  ],
+  "mark": {"type":"bar","tooltip":true},
+  "encoding": {
+    "x": {
+      "field": "location",
+      "type": "nominal",
+      "title": "Country"
+    },
+    "y": {
+      "aggregate": "mean",
+      "field": "people_fully_vaccinated_per_hundred",
+      "scale": {
+        "type": "linear"
       },
-      {
-        "filter": "datum.location != 'Jersey'"
-      },
-      {
-        "filter": "datum.location != 'Uruguay'"
-      },
-      {
-        "filter": "datum.location != 'Liechtenstein'"
-      },
-      {
-        "filter": "datum.location != 'Switzerland'"
-      }
-    ],
-    "mark": "bar",
-    "encoding": {
-      "x": {
-          "field": "location",
-          "type": "nominal",
-          "title": "Country"
-      },
-      "y": {
-        "aggregate": "mean",
-        "field": "people_fully_vaccinated_per_hundred",
-        "scale":{"type":"linear"},
-        "title": "Fully Vaccinated",
-        "stack":  "normalize"
-      },
-      "color":{
-        "field":"age_group"
-      },
-      "tooltip":[{
-        "field":"age_group"
-      }]
+      "title": "Fully Vaccinated Proportion",
+      "stack": "normalize",
+      "format":".0%"
+    },
+    "color": {
+      "field": "age_group",
+      "title":"Age Group"
     }
   }
+}

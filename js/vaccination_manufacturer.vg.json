@@ -1,42 +1,84 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 600,
+  "width": 1200,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-manufacturer.csv"
   },
   "transform": [{
     "calculate": "if(datum.vaccine === 'CanSino',0,if(datum.vaccine === 'Sputnik V',1,if(datum.vaccine === 'Sinopharm/Beijing',2,if(datum.vaccine === 'Sinovac',3,if(datum.vaccine === 'Johnson&Johnson',4,if(datum.vaccine === 'Oxford/AstraZeneca',5,if(datum.vaccine === 'Moderna',6,if(datum.vaccine === 'Pfizer/BioNTech',7,8))))))))",
-    "as":"siteOrder"
+    "as": "siteOrder"
   }],
-  "mark": "area",
   "encoding": {
     "x": {
-        "field": "date",
-        "timeUnit": {
-            "unit": "yearweek"
-        },
-        "type": "temporal",
-        "title": "Month",
-        "axis": {
-            "labelAngle": 0,
-            "format": "%b %y"
-        }
+      "field": "date",
+      "timeUnit": {
+        "unit": "yearweek"
+      },
+      "type": "temporal",
+      "title": "Month",
+      "axis": {
+        "labelAngle": 0,
+        "format": "%b %y",
+        "grid": false
+      }
     },
     "y": {
       "aggregate": "sum",
       "field": "total_vaccinations",
-      "scale":{"type":"sqrt"},
+      "scale": {
+        "type": "sqrt"
+      },
       "title": "Total Doses",
-      "stack": "zero"
-    },
-    "color":{
-      "field":"vaccine"
-    },
-    "order": {"field":"siteOrder"},
-    "tooltip":[{
-      "field":"vaccine"
+      "stack": "zero",
+      "axis": {
+        "tickCount": 4
+      }
     }
-  ]
-  }
+  },
+  "layer": [{
+    "selection": {
+      "vaxx_highlight": {
+        "type": "multi",
+        "fields": ["vaccine"],
+        "bind": "legend"
+      }
+    },
+    "mark": "area",
+    "encoding": {
+      "color": {
+        "field": "vaccine",
+        "legend":{"labelFontSize":15,"orient": "bottom","title":"Vaccine (click to highlight)"}
+      },
+      "order": {
+        "field": "siteOrder"
+      },
+      "opacity": {
+        "condition": {
+          "selection": "vaxx_highlight",
+          "value": 1
+        },
+        "value": 0.2
+      },
+      "tooltip": [{
+          "field": "vaccine",
+          "title":"Vaccine Manufacturer"
+        },
+        {
+          "field": "total_vaccinations",
+          "aggregate": "sum",
+          "format":",",
+          "title":"Vaccinations"
+        },
+        {
+          "field": "date",
+          "type": "temporal",
+          "timeUnit": {
+            "unit": "yearweek"
+          },
+          "title":"Date"          
+        }
+      ]
+    }
+  }]
 }

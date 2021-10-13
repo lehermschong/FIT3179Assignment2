@@ -1,8 +1,96 @@
 #covid19_map {
-	top:1000px;
-	bottom: 1000px; 
-	left: 1000px;
-	right: 1000px;
+	top:0px;
+	bottom: 0px; 
+	left: 25px;
+	right: 50px;
 	/*height: 1000px;
 	width: 800px;*/
+}
+#barchart {
+	top:0px;
+	bottom: 0px; 
+	left: 25px;
+	right: 50px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+#lineworld {
+	top:0px;
+	bottom: 0px; 
+	left: 20px;
+	right: 50px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+#scatterplot_graph {
+	top:0px;
+	bottom: 0px; 
+	left: 25px;
+	right: 50px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+#heatmap {
+	top:0px;
+	bottom: 0px; 
+	left: 25px;
+	right: 50px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+.factor-icon {
+	width:120px;
+	filter: grayscale(90%);
+}
+
+
+/* set a max-width for horizontal fluid layout and make it centered */
+/* .container-fluid {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1400px; 
+    } */
+
+.sp {
+	display: none;
+}
+.titles{
+	background-color: rgb(255, 168, 168);
+}
+.titlered{
+	background-color:rgb(252, 255, 93)
+}
+.pink {
+	background-color: rgb(255, 253, 158);
+}
+
+.blue {
+	background-color: rgb(200, 241, 200);
+}
+.background{
+	background-color: lightyellow;
+}
+.factor-icon {
+	width:120px;
+	filter: grayscale(90%);
+}
+
+.factor-icon:hover {
+	filter: grayscale(0%);
+	background-color: antiquewhite;
+}
+
+/* set a max-width for horizontal fluid layout and make it centered */
+/* .container-fluid {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1400px; 
+    } */
+
+.sp {
+	display: none;
+}
+
+#gdp_sp {
+	display:flex;
 }

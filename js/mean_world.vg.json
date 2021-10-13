@@ -1,0 +1,127 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data-full.csv"
+    },
+    "params": [{
+        "name": "Continent_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+                null,
+                "Asia"
+            ],
+            "labels": [
+                "Show All",
+                "Remove Asia"
+            ],
+            "name": "Continent Filter: "
+        }
+    }],
+    "transform": [{
+            "filter": {
+                "field": "date",
+                "gte": {
+                    "year": 2020,
+                    "month": "dec",
+                    "date": 1
+                }
+            }
+        },
+        {
+            "filter": {
+                "field": "location",
+                "oneOf": ["North America", "Europe", "Oceania", "Asia", "South America", "Africa"]
+            }
+        }, {
+            "filter": "Continent_selection==null || datum.location != Continent_selection"
+        }
+    ],
+
+    "hconcat": [{
+            "width": 500,
+            "height": 375,
+            "mark": {"type":"line","strokeWidth":5},
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "timeUnit": {
+                        "unit": "yearweek"
+                    },
+                    "type": "temporal",
+                    "title": "Month",
+                    "axis": {
+                        "labelAngle": 0,
+                        "format": "%b %y",
+                        "grid": false
+                    }
+                },
+                "y": {
+                    "field": "people_fully_vaccinated",
+                    "aggregate": "mean",
+                    "type": "quantitative",
+                    "title":"Number of People Fully Vaccinated"
+                },
+                "color": {
+                    "field": "location"
+                },
+                "tooltip":[{
+                    "field":"people_fully_vaccinated",
+                    "aggregate":"mean",
+                    "title":"People fully vaccinated"
+                },
+                {
+                    "field": "date",
+                    "type": "temporal",
+                    "timeUnit": {
+                      "unit": "yearweek"
+                    },
+                    "title":"Date"          
+                  }]
+            }
+        },
+        {
+            "width": 500,
+            "height": 375,
+            "mark": {"type":"line","strokeWidth":5},
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "timeUnit": {
+                        "unit": "yearweek"
+                    },
+                    "type": "temporal",
+                    "title": "Month",
+                    "axis": {
+                        "labelAngle": 0,
+                        "format": "%b %y",
+                        "grid": false
+                    }
+                },
+                "y": {
+                    "field": "people_fully_vaccinated_per_hundred",
+                    "aggregate": "mean",
+                    "type": "quantitative",
+                    "title":"Percentage of People Fully Vaccinated"
+                    
+                },
+                "color": {
+                    "field": "location"
+                },
+                "tooltip":[{
+                    "field":"people_fully_vaccinated_per_hundred",
+                    "aggregate":"mean",
+                    "title":"Percentage fully vaccinated"
+                },
+                {
+                    "field": "date",
+                    "type": "temporal",
+                    "timeUnit": {
+                      "unit": "yearweek"
+                    },
+                    "title":"Date"          
+                  }]
+                }
+            }
+    ]
+}

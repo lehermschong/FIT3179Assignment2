@@ -100,10 +100,12 @@
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [200000000, 400000000, 600000000, 800000000, 1000000000],
-            "range": [100, 300, 500, 700, 900]
+            "domain": [10000000, 100000000, 300000000, 700000000, 800000000],
+            "range": [100, 200, 400, 700, 900, 1200]
           },
-          "title": "Population"
+          "format":",",
+          "title": "Population",
+          "legend":{"format":","}
         },
         "color": {
           "field": "continent",
@@ -112,7 +114,8 @@
             "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
             "range": ["#fa1100", "#fbad00", "#e9b9b9", "#b8e553", "#7d52ff", "#ff00eb"]
           },
-          "title": "Continent"
+          "title": "Continent",
+          "legend":{"title":"Continent (click to highlight)","labelFontSize":15}
         },
         "opacity": {
           "condition": {
@@ -131,29 +134,33 @@
         },
         "tooltip": [{
             "field": "location",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Country"
           },
           {
             "field": "continent",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Continent"
           },
           {
             "field": "population",
             "type": "quantitative",
-            "format": ","
+            "format": ",",
+            "title": "Population"
           },
           {
             "field": "total_vaccinations",
             "type": "quantitative",
-            "format": ","
+            "format": ",",
+            "title": "Total Vaccinations"
           },
           {
             "field": "total_deaths",
             "type": "quantitative",
-            "format": ","
+            "format": ",",
+            "title": "Total Deaths"
           }
         ]
-
       }
     },
     {
