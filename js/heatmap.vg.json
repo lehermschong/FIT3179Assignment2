@@ -33,7 +33,7 @@
                         "unit": "yearweek"
                     },
                     "type": "temporal",
-                    "title": "Month",
+                    "title": null,
                     "axis": {
                         "labelAngle": 0,
                         "format": "%b %y",
@@ -45,7 +45,7 @@
                     "field": "date",
                     "timeUnit": "day",
                     "type": "ordinal",
-                    "title": "Day",
+                    "title": null,
                     "axis":{
                         "labelFontSize":15,
                         "titleFontSize":20
