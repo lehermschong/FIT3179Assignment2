@@ -14,7 +14,7 @@
         }
     },
     "params": [
-        {"name": "pts", "select": {"type": "point", "on": "mouseover"}}
+        {"name": "pts", "select": {"type": "point"}}
       ],
     "transform": [{
         "filter": "datum.location == 'World'"
@@ -71,6 +71,7 @@
                         "scheme": "redyellowgreen"
                     }
                 },
+                "opacity":{"condition": {"param": "pts", "empty": true, "value": 1},"value": 0.4},
                 "tooltip": [{
                         "field": "new_vaccinations",
                         "aggregate":"mean",

@@ -22,6 +22,9 @@
     }
   ],
   "layer": [{
+    "params": [
+      {"name": "pts", "select": {"type": "point","on":"mouseover"}}
+    ],
       "mark": {
         "type": "bar",
         "tooltip": true
@@ -52,6 +55,9 @@
             "titleFontSize": 20
           }
         },
+        "stroke":{"condition": {"param": "pts", "empty": false, "value": "black"},"value": "white"},
+        "strokeWidth":{"condition": {"param": "pts", "empty": false, "value": 1},
+        "value": 0},
         "color": {
           "field": "age_group",
           "title": "Age Group",
