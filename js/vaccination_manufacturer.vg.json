@@ -83,10 +83,6 @@
             "unit": "yearweek"
           },
           "title":"Date"          
-        },
-        {
-          "field":"gdp_per_capita",
-          "title":"GDP Per Capita"
         }
       ]
     }
