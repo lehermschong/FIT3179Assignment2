@@ -29,20 +29,17 @@
 </head>
 <body class="vsc-initialized background">
       <!-- Header (Title) -->
-      <div class>
+      <div class="section p-3">
             <div class="container">
-                  <div class="titles">
-                        <div class="col-12 d-flex justify-content-center">
-                              <div class="h1">COVID-19 Vaccinations</div>
+                  <div class= "row blue">
+                        <div class="col-12 d-flex justify-content-center titles">
+                              <div class="a" >COVID-19 Vaccinations Worldwide</div>
                         </div>
-                  </div>
-                  <div class="col-12 d-flex justify-content-center blue">
-                  <div class="h2">Road to Recovery</div>
-                  </div>
                   <div class="col-12 d-flex justify-content-center blue">
                         <div class="col-12 d-flex justify-content-center">
-                              <div class="span">With the increased availability of vaccines, mankind is closer to overcoming another pandemic. This visualisation aims to shed light on details of vaccinations all around the world in every region.</div>
+                              <div class="b">With the increased availability of vaccines, mankind is closer to overcoming another pandemic. This visualisation aims to shed light on details of vaccinations all around the world in every region.</div>
                         </div>
+                  </div>
                   </div>
             </div>
       </div>
@@ -50,11 +47,20 @@
       <!-- Choropleth Map Section -->
       <div class="section p-3">
             <div class="container">
-                  <div class="row blue">
+                  <div class="row blue p-3 sp">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              COVID-19 Vaccination Around the World
+                            </div>  
+                        <div class="blue d-flex justify-content-center p-1 h5">
+                              Fully Vaccinated Population Percentage
+                            </div>  
                         <div class="col-12 d-flex justify-content-center">
                               <div id="covid19_map">
                               </div>
                         </div>
+                        <div class="blue d-flex justify-content-center p-1 h5">
+                              Global Vaccination Heatmap
+                            </div>  
                         <div class="col-12 d-flex justify-content-center">
                               <div id ="heatmap"></div>
                         </div>
@@ -64,43 +70,43 @@
 
       <!-- Scatterplot selection (interactive) -->
       <div class="section p-3">
-            <div class="container">
-                  <div class="row titles d-flex justify-content-center p-3 h2">
-                    Vaccinations, are they important?
-                  </div>                  
+            <div class="container">              
                   <div class="row blue p-3 sp">
-                        <div class="col-12 d-flex justify-content-center">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              Vaccines, are they important?
+                            </div>
+                        <div class="col-12 justify-content-center b">
                           Vaccines are important for reducing the severity of the virus.
-                          Let's take a closer look at how deaths are related to vaccinations. Use the various interactions to manipulate and visualise the data.
+                          Let's take a closer look at how <b>deaths</b> are related to <b>vaccinations</b>. Use the <i>slider, legend and dropdown menu</i> to manipulate and interact with the idiom.
                         </div>
+                        <div class="col-12 justify-content-center b">
+                              We can see that as the deaths increase, so do the number of vaccinations. 
+                            </div>
+                        <div class="blue d-flex justify-content-center p-1 h5">
+                              Plot of Total Deaths against Total Vaccinations
+                            </div>     
                         <div class="col-12 d-flex justify-content-center">
                               <div id="scatterplot_graph"></div>
                         </div>
                   </div>
             </div>
       </div>
-
-      <!-- Line Charts sections -->
-            <div class="section p-3">
-              <div class="container">
-                <div class="row titles d-flex justify-content-center p-3 h2">
-                  Vaccination Trends per Region
-                </div>   
-                    <div class="row blue">
-                          <div class="col-12 d-flex justify-content-center">
-                                <div id="lineworld"></div>
-                          </div>
-                    </div>
-              </div>
-        </div>
-
       <!-- Vaxx manufacturers -->
       <div class="section p-3">
             <div class="container">
-              <div class="row titles d-flex justify-content-center p-3 h2">
-                Most Popular Vaccine Manufacturers
-              </div>   
-                  <div class="row blue">
+                  <div class="row blue p-3 sp">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              Most Popular Vaccine Manufacturers
+                            </div>   
+                        <div class="col-12 justify-content-center b">
+                              Due to extensive research by multiple different countries and organizations, various vaccines have been developed to combat the viral outbreak.
+                              mRNA vaccines such as <b><span style="color:rgb(0, 161, 35)">Pfizer/BioNTech</span></b> and 
+                              <b><span style="color:rgb(228, 0, 0)">Moderna</span></b> have been statiscally proven to be the <a href="https://www.yalemedicine.org/news/covid-19-vaccine-comparison#:~:text=One%20study%20published%20in%20The,compared%20to%2088.8%25%20for%20Pfizer.">most effective vaccines.</a>
+                              This makes them the most highly sought and produced vaccines all around the world.
+                        </div>
+                        <div class="blue d-flex justify-content-center p-1 h5">
+                              Vaccination Trend per Manufacturer
+                            </div>    
                         <div class="col-12 d-flex justify-content-center">
                               <div id="vaxxmanufacturer"></div>
                         </div>
@@ -108,15 +114,46 @@
             </div>
       </div>
       
+      <!-- Line Charts sections -->
+            <div class="section p-3">
+              <div class="container">
+                    <div class="row blue p-3 sp">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              Vaccination Trends per Region
+                            </div>  
+                        <div class="col-12 justify-content-center b">
+                              <b>Vaccination</b> efforts around the world have been unrelenting with hopes of defeating the pandemic. 
+                              <b><span style="color:rgb(228, 148, 0)">Asia</span></b> is currently the continent with the most vaccinated people, and 
+                            <b><span style="color: red">Europe</span></b> is the continent with the highest percentage of vaccinated population.
+                            <b><span style="color: blue">Africa</span></b> is poorest continents and is unable to afford vaccinations, hence the low numbers.</div>
+                        <div class="col-12 justify-content-center b">
+                              Due to the recent surge of the Delta-variant cases in Asia around August, vaccination efforts have skyrocketed since then to prepare nations for another outbreak.
+                            <div class="blue d-flex justify-content-center p-1 h5">
+                              Vaccination Trends all around the World
+                            </div>    
+                          <div class="col-12 d-flex justify-content-center">
+                                <div id="lineworld"></div>
+                          </div>
+                    </div>
+              </div>
+        </div>
 
       
       <!-- Age bar section -->
       <div class="section p-3">
             <div class="container">
-              <div class="row titles d-flex justify-content-center p-3 h2">
-                Fully Vaccinated Age Groups
-              </div>  
-                  <div class="row blue">
+                  <div class="row blue p-3 sp">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              Fully Vaccinated Age Groups
+                            </div>  
+                        <div class="col-12 justify-content-center b">
+                              Many countries have different vaccination strategies. However, one common part shared is that more than <b>50%</b> of the doses are given to 
+                              citizens <b>aged 50 and above</b>. This is because they have weaker immunity to the virus and have a higher mortality rate. Vaccines are given to them
+                              to prevent excessive deaths.
+                            </div>
+                        <div class="blue d-flex justify-content-center p-1 h5">
+                              Normalized Age Group Vaccinations in Select Countries
+                            </div>    
                         <div class="d-flex justify-content-center">
                           <div id="barchart"></div>
                         </div>
@@ -127,10 +164,13 @@
       <!-- Conclusion section -->
       <div class="section p-3">
             <div class="container">
-                  <div class="row blue">
-                        <div class="h1">Conclusion</div>
-                        <div class="col-12">
+                  <div class="row blue p-3 sp">
+                        <div class="titles d-flex justify-content-center p-3 h2">
+                              Conclusion
+                            </div>  
+                        <div class="col-12 justify-content-center b">
                               Vaccines are a very important factor in successfully combating the COVID-19 pandemic. In nearly all countries in the world, vaccination efforts are still ongoing and will not be seeing much of a stop until most of the nation is fully vaccinated against the virus.
+                              That said, efforts and countermeasures need to be taken more serious and effectively in order to reduce the severity of the virus to just another common flu.
                         </div>
                   </div>
             </div>

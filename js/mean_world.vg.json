@@ -40,50 +40,109 @@
 
     "hconcat": [{
             "width": 500,
-            "height": 375,
-            "mark": {"type":"line","strokeWidth":5},
-            "encoding": {
-                "x": {
-                    "field": "date",
-                    "timeUnit": {
-                        "unit": "yearweek"
+            "height": 500,
+            "layer": [{
+                    "mark": {
+                        "type": "line",
+                        "strokeWidth": 5
                     },
-                    "type": "temporal",
-                    "title": "Month",
-                    "axis": {
-                        "labelAngle": 0,
-                        "format": "%b %y",
-                        "grid": false
+                    "encoding": {
+                        "x": {
+                            "field": "date",
+                            "timeUnit": {
+                                "unit": "yearweek"
+                            },
+                            "type": "temporal",
+                            "title": null,
+                            "axis": {
+                                "labelAngle": 0,
+                                "format": "%b %y",
+                                "grid": false,
+                                "labelFontSize": 15,
+                                "titleFontSize": 20
+                            }
+                        },
+                        "y": {
+                            "field": "people_fully_vaccinated",
+                            "aggregate": "mean",
+                            "type": "quantitative",
+                            "title": "Number of People Fully Vaccinated",
+                            "axis": {
+                                "labelFontSize": 15,
+                                "titleFontSize": 20,
+                                "format": ",.2s"
+                            }
+                        },
+                        "color": {
+                            "field": "location",
+                            "legend": {
+                                "labelFontSize": 15,
+                                "titleFontSize": 20,
+                                "symbolSize": 500,
+                                "symbolStrokeWidth": 5,
+                                "orient": "bottom",
+                                "title": "Continent"
+                            }
+                        },
+                        "tooltip": [{
+                                "field": "people_fully_vaccinated",
+                                "aggregate": "mean",
+                                "title": "People fully vaccinated",
+                                "format": ",.2s"
+                            },
+                            {
+                                "field": "date",
+                                "type": "temporal",
+                                "timeUnit": {
+                                    "unit": "yearweek"
+                                },
+                                "title": "Date"
+                            }
+                        ]
                     }
                 },
-                "y": {
-                    "field": "people_fully_vaccinated",
-                    "aggregate": "mean",
-                    "type": "quantitative",
-                    "title":"Number of People Fully Vaccinated"
-                },
-                "color": {
-                    "field": "location"
-                },
-                "tooltip":[{
-                    "field":"people_fully_vaccinated",
-                    "aggregate":"mean",
-                    "title":"People fully vaccinated"
-                },
                 {
-                    "field": "date",
-                    "type": "temporal",
-                    "timeUnit": {
-                      "unit": "yearweek"
+                    "data": {
+                        "values": [{"date": "08-01-2021"}]
                     },
-                    "title":"Date"          
-                  }]
-            }
+                    "encoding": {
+                        "x": {
+                            "field":"date",
+                            "type":"temporal"
+                        }
+                    },
+                    "layer": [{
+                            "mark": "rule",
+                            "encoding": {
+                                "size": {
+                                    "value": 2
+                                },
+                                "color": {
+                                    "value": "red"
+                                }
+                            }
+                        },
+                        {
+                            "mark": {
+                                "type": "text",
+                                "text": "Delta-Variant outbreak (Asia)",
+                                "color": "red",
+                                "dx": -100,
+                                "fontSize": 15
+                            }
+                        }
+                    ]
+                }
+            ]
+
         },
         {
             "width": 500,
-            "height": 375,
-            "mark": {"type":"line","strokeWidth":5},
+            "height": 500,
+            "mark": {
+                "type": "line",
+                "strokeWidth": 5
+            },
             "encoding": {
                 "x": {
                     "field": "date",
@@ -91,37 +150,47 @@
                         "unit": "yearweek"
                     },
                     "type": "temporal",
-                    "title": "Month",
+                    "title": null,
                     "axis": {
                         "labelAngle": 0,
                         "format": "%b %y",
-                        "grid": false
+                        "grid": false,
+                        "labelFontSize": 15,
+                        "titleFontSize": 20
                     }
                 },
                 "y": {
                     "field": "people_fully_vaccinated_per_hundred",
                     "aggregate": "mean",
                     "type": "quantitative",
-                    "title":"Percentage of People Fully Vaccinated"
-                    
+                    "title": "Percentage of People Fully Vaccinated",
+                    "axis": {
+                        "labelFontSize": 15,
+                        "titleFontSize": 20
+                    }
+
                 },
                 "color": {
                     "field": "location"
                 },
-                "tooltip":[{
-                    "field":"people_fully_vaccinated_per_hundred",
-                    "aggregate":"mean",
-                    "title":"Percentage fully vaccinated"
-                },
-                {
-                    "field": "date",
-                    "type": "temporal",
-                    "timeUnit": {
-                      "unit": "yearweek"
+                "tooltip": [{
+                        "field": "people_fully_vaccinated_per_hundred",
+                        "aggregate": "mean",
+                        "title": "Percentage fully vaccinated"
                     },
-                    "title":"Date"          
-                  }]
-                }
+                    {
+                        "field": "date",
+                        "type": "temporal",
+                        "timeUnit": {
+                            "unit": "yearweek"
+                        },
+                        "title": "Date"
+                    }
+                ]
             }
-    ]
+        }
+    ],
+    "config": {
+        "background": "#e0e0e0"
+    }
 }

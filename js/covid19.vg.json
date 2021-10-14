@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Population Fully Vaccinated All Around the World",
-  "width": 1000,
+  "width": 1100,
   "height": 500,
   "projection": {
     "type": "equirectangular",
@@ -95,7 +94,9 @@
             "scheme": "redyellowgreen"
           },
           "legend": {
-            "title": "Vaccinated %"
+            "title": "Vaccinated %",
+            "titleFontSize":20,
+            "labelFontSize":15
           }
         },
         "tooltip": [{
@@ -124,5 +125,7 @@
     }
     ]}
   ],
-  "config":{}
+  "config": {
+    "background": "#e0e0e0"
+}
 }

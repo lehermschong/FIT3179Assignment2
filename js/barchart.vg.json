@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1100,
+  "width": 1000,
   "height": 600,
   "data": {
     "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-age-group.csv"
@@ -21,26 +21,61 @@
       "filter": "datum.location != 'Switzerland'"
     }
   ],
-  "mark": {"type":"bar","tooltip":true},
-  "encoding": {
-    "x": {
-      "field": "location",
-      "type": "nominal",
-      "title": "Country"
-    },
-    "y": {
-      "aggregate": "mean",
-      "field": "people_fully_vaccinated_per_hundred",
-      "scale": {
-        "type": "linear"
+  "layer": [{
+      "mark": {
+        "type": "bar",
+        "tooltip": true
       },
-      "title": "Fully Vaccinated Proportion",
-      "stack": "normalize",
-      "format":".0%"
+      "encoding": {
+        "x": {
+          "field": "location",
+          "type": "nominal",
+          "title": "Country",
+          "axis": {
+            "labelFontSize": 15,
+            "labelFontWeight": "bolder",
+            "titleFontSize": 20
+          }
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": "people_fully_vaccinated_per_hundred",
+          "title": "Fully Vaccinated Proportion",
+          "scale": {
+            "type": "linear"
+          },
+          "stack": "normalize",
+          "format": ".0%",
+          "axis": {
+            "title": "Fully Vaccinated Proportion",
+            "labelFontSize": 15,
+            "titleFontSize": 20
+          }
+        },
+        "color": {
+          "field": "age_group",
+          "title": "Age Group",
+          "legend": {
+            "titleFontSize": 20,
+            "labelFontSize": 15
+          }
+        }
+      }
     },
-    "color": {
-      "field": "age_group",
-      "title":"Age Group"
+    {
+      "data":{"values":[{}]},
+      "encoding": {"y":{"datum":0.5}},
+      "layer":[{"mark": "rule",
+      "encoding": {
+        "size": {
+          "value": 2
+        },
+        "color": {"value":"red"}
+      }},
+    {"mark":{"type": "text","text":"50% threshhold","color":"red","dx":555,"fontSize":15}}]
     }
+  ],
+  "config": {
+    "background": "#e0e0e0"
   }
 }

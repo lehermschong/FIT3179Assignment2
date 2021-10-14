@@ -1,48 +1,47 @@
 #covid19_map {
 	top:0px;
 	bottom: 0px; 
-	left: 25px;
-	right: 50px;
-	/*height: 1000px;
-	width: 800px;*/
-}
-#barchart {
-	top:0px;
-	bottom: 0px; 
-	left: 25px;
-	right: 50px;
-	/*height: 1000px;
-	width: 800px;*/
-}
-#lineworld {
-	top:0px;
-	bottom: 0px; 
-	left: 20px;
-	right: 50px;
-	/*height: 1000px;
-	width: 800px;*/
-}
-#scatterplot_graph {
-	top:0px;
-	bottom: 0px; 
-	left: 25px;
-	right: 50px;
-	/*height: 1000px;
-	width: 800px;*/
+	left: 2%;
+	right: 0%;
 }
 #heatmap {
 	top:0px;
 	bottom: 0px; 
-	left: 25px;
-	right: 50px;
-	/*height: 1000px;
-	width: 800px;*/
+	left: 2%;
+	right: 0%;
 }
-.factor-icon {
-	width:120px;
-	filter: grayscale(90%);
+#scatterplot_graph{
+	top:0px;
+	bottom: 0px; 
+	left: 2%;
+	right: 0%;
 }
-
+#vaxx_manufacturer{
+	top:0px;
+	bottom: 0px; 
+	left: 2%;
+	right: 0%;
+}
+#barchart{
+	top:0px;
+	bottom: 0px; 
+	left: 2%;
+	right: 0%;
+}
+#lineworld{
+	top:0px;
+	bottom: 0px; 
+	left: 2%;
+	right: 0%;
+}
+div.a {
+	font-size: 50px;
+	font-weight: bold;
+  }
+div.b {
+	font-size: 20px;
+	font-weight:400;
+}
 
 /* set a max-width for horizontal fluid layout and make it centered */
 /* .container-fluid {
@@ -55,31 +54,21 @@
 	display: none;
 }
 .titles{
-	background-color: rgb(255, 168, 168);
+	background-color: rgb(151, 255, 173);
 }
 .titlered{
 	background-color:rgb(252, 255, 93)
 }
 .pink {
-	background-color: rgb(255, 253, 158);
+	background-color: rgb(190, 190, 190);
 }
 
 .blue {
-	background-color: rgb(200, 241, 200);
+	background-color: rgb(224, 224, 224);
 }
 .background{
-	background-color: lightyellow;
+	background-color: rgb(49, 136, 56);
 }
-.factor-icon {
-	width:120px;
-	filter: grayscale(90%);
-}
-
-.factor-icon:hover {
-	filter: grayscale(0%);
-	background-color: antiquewhite;
-}
-
 /* set a max-width for horizontal fluid layout and make it centered */
 /* .container-fluid {
 	margin-right: auto;

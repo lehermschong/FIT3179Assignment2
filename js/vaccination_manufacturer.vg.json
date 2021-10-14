@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1200,
+  "width": 1050,
   "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-manufacturer.csv"
@@ -20,7 +20,9 @@
       "axis": {
         "labelAngle": 0,
         "format": "%b %y",
-        "grid": false
+        "grid": false,
+        "labelFontSize":15,
+        "titleFontSize":20
       }
     },
     "y": {
@@ -32,7 +34,9 @@
       "title": "Total Doses",
       "stack": "zero",
       "axis": {
-        "tickCount": 4
+        "tickCount": 4,
+        "labelFontSize":15,
+        "titleFontSize":20
       }
     }
   },
@@ -48,7 +52,9 @@
     "encoding": {
       "color": {
         "field": "vaccine",
-        "legend":{"labelFontSize":15,"orient": "bottom","title":"Vaccine (click to highlight)"}
+        "legend":{"orient": "bottom","title":"Vaccine",
+        "labelFontSize":15,
+        "titleFontSize":20}
       },
       "order": {
         "field": "siteOrder"
@@ -77,8 +83,15 @@
             "unit": "yearweek"
           },
           "title":"Date"          
+        },
+        {
+          "field":"gdp_per_capita",
+          "title":"GDP Per Capita"
         }
       ]
     }
-  }]
+  }],
+  "config": {
+    "background": "#e0e0e0"
+}
 }

@@ -3,8 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/lehermschong/FIT3179Assignment2/main/data/owid-covid-data-full.csv"
     },
-    "title": "Daily Vaccinations Around the World",
-    "width": 1000,
+    "width": 1050,
     "padding":5,
     "config": {
         "view": {
@@ -12,7 +11,8 @@
         },
         "axis": {
             "domain": false
-        }
+        },
+    "background": "#e0e0e0"
     },
     "transform": [{
         "filter": "datum.location == 'World'"
@@ -36,21 +36,28 @@
                     "title": "Month",
                     "axis": {
                         "labelAngle": 0,
-                        "format": "%b %y"
+                        "format": "%b %y",
+                        "labelFontSize":15,
+                        "titleFontSize":20
                     }
                 },
                 "y": {
                     "field": "date",
                     "timeUnit": "day",
                     "type": "ordinal",
-                    "title": "Day"
+                    "title": "Day",
+                    "axis":{
+                        "labelFontSize":15,
+                        "titleFontSize":20
+                    }
                 },
                 "color": {
                     "field": "new_vaccinations",
                     "aggregate": "mean",
                     "type": "quantitative",
                     "legend": {
-                        "title": null
+                        "title": null,
+                        "labelFontSize":15
                     },
                     "scale": {
                         "type": "linear",

@@ -69,7 +69,9 @@
       },
       "title": "Total Vaccinations",
       "axis": {
-        "tickCount": 6
+        "tickCount": 6,
+        "labelFontSize":15,
+        "titleFontSize":20
       }
     },
     "y": {
@@ -81,7 +83,9 @@
       },
       "title": "Total Deaths",
       "axis": {
-        "tickCount": 6
+        "tickCount": 6,
+        "labelFontSize":15,
+        "titleFontSize":20
       }
     }
   },
@@ -93,7 +97,9 @@
           "bind": "legend"
         }
       },
-      "mark": "circle",
+      "mark": {"type":"circle",
+      "stroke": "black",
+      "strokeWidth": 0.5},
       "encoding": {
         "size": {
           "field": "population",
@@ -101,21 +107,20 @@
           "scale": {
             "type": "threshold",
             "domain": [10000000, 100000000, 300000000, 700000000, 800000000],
-            "range": [100, 200, 400, 700, 900, 1200]
+            "range": [200, 400, 800, 1200, 1600, 2500]
           },
           "format":",",
           "title": "Population",
-          "legend":{"format":","}
+          "legend":{"format":",.2s",        
+          "labelFontSize":15,
+          "titleFontSize":20}
         },
         "color": {
           "field": "continent",
           "type": "nominal",
-          "scale": {
-            "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
-            "range": ["#fa1100", "#fbad00", "#e9b9b9", "#b8e553", "#7d52ff", "#ff00eb"]
-          },
           "title": "Continent",
-          "legend":{"title":"Continent (click to highlight)","labelFontSize":15}
+          "legend":{"title":"Continent","labelFontSize":15,
+          "titleFontSize":20}
         },
         "opacity": {
           "condition": {
@@ -123,14 +128,6 @@
             "value": 1
           },
           "value": 0.2
-        },
-        "mark": {
-          "type": "text",
-          "align": "right",
-          "baseline": "middle",
-          "dx": -12,
-          "fontSize": 11.5,
-          "fontStyle": "italic"
         },
         "tooltip": [{
             "field": "location",
@@ -166,11 +163,11 @@
     {
       "mark": {
         "type": "text",
-        "align": "right",
+        "align": "center",
         "baseline": "middle",
-        "dx": -5,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
+        "dy": 10,
+        "fontSize": 15,
+        "fontStyle": "bolder"
       },
       "encoding": {
         "text": {
@@ -189,5 +186,8 @@
         }
       }
     }
-  ]
+  ],
+    "config": {
+    "background": "#e0e0e0"
+}
 }
