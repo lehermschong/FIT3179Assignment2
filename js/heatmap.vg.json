@@ -11,9 +11,11 @@
         },
         "axis": {
             "domain": false
-        },
-    "background": "#e0e0e0"
+        }
     },
+    "params": [
+        {"name": "pts", "select": {"type": "point", "on": "mouseover"}}
+      ],
     "transform": [{
         "filter": "datum.location == 'World'"
     }],
@@ -34,11 +36,13 @@
                     },
                     "type": "temporal",
                     "title": null,
+                    
                     "axis": {
                         "labelAngle": 0,
                         "format": "%b %y",
                         "labelFontSize":15,
-                        "titleFontSize":20
+                        "titleFontSize":20,
+                        "grid": false
                     }
                 },
                 "y": {
@@ -51,6 +55,9 @@
                         "titleFontSize":20
                     }
                 },
+                "stroke":{"condition": {"param": "pts", "empty": false, "value": "black"},"value": "white"},
+                "strokeWidth":{"condition": {"param": "pts", "empty": false, "value": 1},
+                "value": 0},
                 "color": {
                     "field": "new_vaccinations",
                     "aggregate": "mean",

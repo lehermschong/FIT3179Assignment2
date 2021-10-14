@@ -37,10 +37,17 @@
 div.a {
 	font-size: 50px;
 	font-weight: bold;
+	color: white;
   }
 div.b {
 	font-size: 20px;
 	font-weight:400;
+}
+div.h2{
+	font-family:'Source Sans Pro', sans-serif;
+	color: white;
+	font-weight:400;
+
 }
 
 /* set a max-width for horizontal fluid layout and make it centered */
@@ -54,20 +61,20 @@ div.b {
 	display: none;
 }
 .titles{
-	background-color: rgb(151, 255, 173);
+	background-color: rgb(23, 112, 46);
 }
 .titlered{
 	background-color:rgb(252, 255, 93)
 }
 .pink {
-	background-color: rgb(190, 190, 190);
+	background-color: rgb(255, 255, 255);
 }
 
 .blue {
-	background-color: rgb(224, 224, 224);
+	background-color: rgb(255, 255, 255);
 }
 .background{
-	background-color: rgb(49, 136, 56);
+	background-color: rgb(176, 255, 200);
 }
 /* set a max-width for horizontal fluid layout and make it centered */
 /* .container-fluid {

@@ -46,6 +46,9 @@
           "feature": "worldmap.geo"
         }
       },
+      "params": [
+        {"name": "pts", "select": {"type": "point", "on": "mouseover"}}
+      ],
       "transform": [{
         "calculate": "'Data is not available in ' + datum.properties.name",
         "as": "note"
@@ -84,6 +87,7 @@
         "strokeWidth": 0.5
       },
       "encoding": {
+        "stroke":{"condition": {"param": "pts", "empty": false, "value": "black"}},
         "shape": { "field": "geo", "type": "geojson" },
         "color": {
           "field": "people_vaccinated_per_hundred",
@@ -126,6 +130,5 @@
     ]}
   ],
   "config": {
-    "background": "#e0e0e0"
 }
 }
