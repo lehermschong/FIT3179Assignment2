@@ -65,6 +65,13 @@
             "titleFontSize": 20,
             "labelFontSize": 15
           }
+        },
+        "opacity":{
+          "condition": {
+            "test": "datum.age_group == '0-17' || datum.age_group == '18-24' || datum.age_group == '25-49' || datum.age_group == '50-59'",
+            "value": 0.6
+          },
+          "value": 1
         }
       }
     },
